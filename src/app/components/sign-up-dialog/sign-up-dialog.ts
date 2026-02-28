@@ -107,10 +107,14 @@
                   class="block w-full text-sm" />
           </div>
 
-          @if(previewImage()){
-            <img [src]="previewImage()"
-                class="w-20 h-20 rounded-full object-cover mt-2">
-}
+          <div class="w-20 h-20 rounded-full flex items-center justify-center mt-2 bg-gray-100">
+            @if (previewImage()) {
+              <img [src]="previewImage()" class="w-full h-full rounded-full object-cover">
+            } @else {
+              <mat-icon class="text-blue-600 text-5xl">person</mat-icon>
+            }
+          </div>
+          
 
           <!-- Submit -->
           <button
@@ -182,7 +186,7 @@
     }
 
     previewImage = signal<string | null>(null);
-selectedImageBase64: string | null = null;
+    selectedImageBase64: string | null = null;
 
 onImageSelected(event: Event) {
   const input = event.target as HTMLInputElement;

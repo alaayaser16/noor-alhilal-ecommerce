@@ -99,9 +99,9 @@ export const EcommerceStore = signalStore(
   { id:'gh-002', name:'علبة شوكولاتة فاخر', description:'علبة شوكولاتة فاخرة مزينة بزينة رمضان', price:1050, imageUrl:'https://i3.fnp.ae/images/pr/x/v20230321175243/ramadan-extra-large-gift-box-by-neuhaus_1.jpg', rating:4.8, reviewCount:6, inStock:true, category:'هدايا رمضانية' },
   { id:'gh-003', name:'مسبحة خشب فاخر', description:'مسبحة خشب مع كيس مخملي للهدايا', price:210, imageUrl:'https://tse2.mm.bing.net/th/id/OIP.NLN3GRx-zg83n4V1lMSeYgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3', rating:4.7, reviewCount:6, inStock:true, category:'هدايا رمضانية' },
   { id:'gh-004', name:'كتاب دعوي رمضاني', description:'كتاب قصص وحكم رمضانية', price:60, imageUrl:'https://static.vecteezy.com/system/resources/previews/011/062/939/non_2x/ramadan-kareem-mosque-dome-with-arabic-pattern-vector.jpg', rating:4.6, reviewCount:6, inStock:true, category:'هدايا رمضانية' },
-  { id:'gh-005', name:'علبة تمور فاخرة', description:'تمور مختارة بعناية للتقديم كهدية', price:230, imageUrl:'https://i7.fnp.ae/images/pr/l/v20220325110423/square-tray-of-dates-and-baklava_1.jpg', rating:4.9, reviewCount:6, inStock:true, category:'هدايا رمضانية' },
+  { id:'gh-005', name:'علبة تمور فاخرة', description:'تمور مختارة بعناية للتقديم كهدية', price:420, imageUrl:'https://i7.fnp.ae/images/pr/l/v20220325110423/square-tray-of-dates-and-baklava_1.jpg', rating:4.9, reviewCount:6, inStock:true, category:'هدايا رمضانية' },
   { id:'gh-006', name:'شمعة معطرة', description:'شمعة معطرة بزخارف رمضانية', price:250, imageUrl:'https://m.media-amazon.com/images/I/81JBPRThkEL._AC_.jpg', rating:4.7, reviewCount:6, inStock:true, category:'هدايا رمضانية' },
-  { id:'gh-007', name:'مصحف صغير للهدايا', description:'مصحف صغير بتغليف أنيق مناسب للهدايا', price:150, imageUrl:'https://tse3.mm.bing.net/th/id/OIP.53N731qmfrO3WLZXWgd0owAAAA?rs=1&pid=ImgDetMain&o=7&rm=3', rating:4.8, reviewCount:6, inStock:true, category:'هدايا رمضانية' },
+  { id:'gh-007', name:'مصحف صغير للهدايا', description:'مصحف صغير بتغليف أنيق مناسب للهدايا', price:250, imageUrl:'https://tse3.mm.bing.net/th/id/OIP.53N731qmfrO3WLZXWgd0owAAAA?rs=1&pid=ImgDetMain&o=7&rm=3', rating:4.8, reviewCount:6, inStock:true, category:'هدايا رمضانية' },
   { id:'gh-008', name:'طقم مجات رمضان', description:'طقم مجات عصير بطباعة رمضانية', price:400, imageUrl:'https://m.media-amazon.com/images/I/715DtnvdgCL._AC_SX569_.jpg', rating:4.6, reviewCount:6, inStock:true, category:'هدايا رمضانية' },
   { id:'gh-009', name:'حقيبة هدايا رمضان', description:'حقيبة أنيقة لحزم الهدايا الرمضانية', price:190, imageUrl:'https://down-my.img.susercontent.com/file/sg-11134201-7rcev-m6gofd2ijgd6de', rating:4.7, reviewCount:6, inStock:true, category:'هدايا رمضانية' },
 ],
@@ -115,7 +115,7 @@ export const EcommerceStore = signalStore(
     selectedProductId: undefined,
     showReview: false,
   } as EcommerceState),
-  withStorageSync({ key: 'modern-store', select: ({ wishlistItems, cartItems, user }) => ({ wishlistItems, cartItems, user }) }),
+  //withStorageSync({ key: 'ecommerce-store', select: ({ wishlistItems, cartItems, user }) => ({ wishlistItems, cartItems, user }) }),
   withComputed(({ category, products, wishlistItems, cartItems, selectedProductId, searchQuery, search }) => ({
     filteredProducts: computed(() => {
       let filtered = products();

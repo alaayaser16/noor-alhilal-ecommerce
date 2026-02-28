@@ -8,18 +8,19 @@ import { TitleCasePipe } from '@angular/common';
 import { EcommerceStore } from '../../ecommerce-store';
 import { effect } from '@angular/core';
 import { ToggleWishlistButton } from "../../components/toggle-wishlist-button/toggle-wishlist-button";
+import { MenuService } from '../../services/menu.service';
 @Component({
   selector: 'app-products-grid',
   imports: [ProductCard, MatSidenavContainer, MatSidenavContent, MatSidenav, MatNavList, MatListItem, MatListItemTitle, RouterLink, TitleCasePipe, ToggleWishlistButton],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
-  <mat-sidenav-container >
-    <mat-sidenav mode="side" [opened]="true" >
+  <mat-sidenav-container class="h-screen">
+    <mat-sidenav #drawer mode="over" [opened]="menu.isOpen()">
       <div class="p-6">
         <h2 class="text-lg text-gray-900">الفئة</h2>
         <mat-nav-list>
           @for (cat of categories(); track cat) {
-            <mat-list-item [activated]="cat === category()" class="my-2" [routerLink]="['/products',cat]">
+            <mat-list-item [activated]="cat === category()" (click)="menu.close()" class="my-2" [routerLink]="['/products',cat]">
               <span matListItemTitle class="font-medium " [class]="cat === category() ? '!text-white' : null">
                 {{cat}}
               </span>
@@ -31,7 +32,7 @@ import { ToggleWishlistButton } from "../../components/toggle-wishlist-button/to
         </mat-nav-list>
       </div>
     </mat-sidenav>
-    <mat-sidenav-content class="bg-gray-100 p-6 h-full ">
+    <mat-sidenav-content class="bg-gray-100 p-4 md:p-6 ">
       <h1 class="text-2xl font-bold text-gray-900 mb-1 capitalize">{{category() | titlecase}}</h1>
       <p class="text-base text-gray-600 mb-6">{{store.filteredProducts().length}} منتجات</p>
       <div class="responsive-grid p-6">
@@ -60,6 +61,7 @@ throw new Error('Method not implemented.');
   category = input<string>('الكل');
 
   store = inject(EcommerceStore);
+  menu = inject(MenuService);
 
   categories = signal<string[]>(['الكل', 'زينة وفوانيس', 'مستلزمات السفرة', 'مذاق رمضان','هدايا رمضانية']);
   constructor() {

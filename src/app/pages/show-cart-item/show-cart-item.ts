@@ -20,7 +20,7 @@ import { QuantitySelector } from '../../components/quantity-selector/quantity-se
       </div>
       <app-quantity-selector [quantity]="item().quantity" (quantityUpdated)="store.setItemQuantity({productId:item().product.id, quantity:$event})"></app-quantity-selector>
 
-      <div class="flex flex-col items-end">
+      <div class="flex flex-col  items-end">
         <div class="text-right font-semibold text-lg">
           {{total()}} ج.م
           <div class="flex -me-3">
